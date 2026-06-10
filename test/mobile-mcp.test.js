@@ -16,11 +16,15 @@ test("mobile MCP wrapper uses Playwright's existing MCP entry with iPhone emulat
 test("package and docs expose the mobile MCP workflow to agents", async () => {
   const [pkg, docs] = await Promise.all([
     readFile("package.json", "utf8").then(JSON.parse),
-    readFile("docs/agent-integration.md", "utf8")
+    readFile("AGENTS.md", "utf8")
   ]);
   assert.equal(pkg.scripts["mobile:mcp"], "node src/mobile-mcp.js");
+  assert.equal(pkg.scripts.review, undefined);
+  assert.equal(pkg.scripts.demo, undefined);
+  assert.equal(pkg.bin["mobile-review"], undefined);
   assert.match(docs, /mobile:mcp/);
   assert.match(docs, /iPhone 15/);
   assert.match(docs, /Claude Code/);
-  assert.match(docs, /Browser Use/);
+  assert.doesNotMatch(docs, /desktop/i);
+  assert.doesNotMatch(docs, /review --/);
 });

@@ -1,6 +1,6 @@
 # Mobile Browser MCP
 
-Render a web app as a real mobile browser context, not only a smaller desktop viewport.
+Give agents an MCP browser that runs as a real mobile context.
 
 ## Usage
 
@@ -17,17 +17,3 @@ Or point your MCP client directly at the entrypoint:
 ```
 
 See `AGENTS.md` for Claude Code, Browser Use, and Claude in Chrome integration details.
-
-## Capture screenshots
-
-```powershell
-npm install
-npm run review -- http://localhost:3000 --out path/to/output
-```
-
-Writes two files:
-
-- `desktop.png` — 1440x900 desktop context
-- `phone.png` — Playwright iPhone 15 context with mobile UA, touch, DPR, and `isMobile: true`
-
-The renderer API is `captureResponsiveScreenshots()` in `src/mobile-renderer.js`.
