@@ -1,0 +1,19 @@
+{
+  "name": "mobile-first-testing",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "mobile-mcp": "./src/mobile-mcp.js",
+    "mobile-review": "./src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "demo": "node examples/run-responsive-demo.mjs",
+    "mobile:mcp": "node src/mobile-mcp.js",
+    "review": "node src/cli.js"
+  },
+  "dependencies": {
+    "playwright": "^1.54.0"
+  }
+}
